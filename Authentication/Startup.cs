@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-
+using System.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Authentication.Services;
@@ -40,7 +40,7 @@ namespace Authentication
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Authentication", Version = "v1" });
             });
 
-            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            var key = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("SecretKey"));
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -58,6 +58,8 @@ namespace Authentication
                     ValidateAudience = false
                 };
             });
+
+            services.AddScoped<IDatabaseProvider, DatabaseProvider>();
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITokenService, TokenService>();

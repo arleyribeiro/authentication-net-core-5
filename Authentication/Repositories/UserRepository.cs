@@ -3,25 +3,20 @@ using System.Threading.Tasks;
 using Authentication.Models;
 using Authentication.Repositories;
 using System.Linq;
+using System.Data;
+using Dapper;
+using System;
 
 namespace Authentication.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
-        public UserRepository()
+        public UserRepository(IDatabaseProvider provider) : base(provider)
         {
-
         }
         public async Task<User> GetUserAsync(string username, string password)
         {
-            var users = await Task.Run(() =>
-            {
-                return new List<User>
-                {
-                    new User { Id = 1, Username = "batman", Password = "batman", Role = "manager" },
-                    new User { Id = 2, Username = "robin", Password = "robin", Role = "employee" }
-                };
-            });
+            var users = await QueryAsync("select * from accounts where username = @username;", new { username }).ConfigureAwait(false);
 
             return users.FirstOrDefault(x => x.Username.ToLower() == username.ToLower() && x.Password == x.Password);
         }
