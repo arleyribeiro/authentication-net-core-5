@@ -9,35 +9,28 @@ using Microsoft.AspNetCore.Authorization;
 using Authentication.Infrastructure;
 using Authentication.Repositories;
 using Authentication.Models;
+using Authentication.Dtos.Request;
+using Authentication.Services;
 
 namespace Authentication.Controllers
 {
     [Route("v1/account")]
     public class AuthenticationController : Controller
     {
-        private readonly IUserRepository _userRepository;
-        private readonly ITokenService _tokenService;
-        public AuthenticationController(IUserRepository userRepository, ITokenService tokenService)
+        private readonly IAccountService _accountService;
+        public AuthenticationController(IAccountService accountService)
         {
-            _userRepository = userRepository;
-            _tokenService = tokenService;
+            _accountService = accountService;
         }
 
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
-        public async Task<ActionResult<dynamic>> Authenticate([FromBody] User model)
+        public async Task<ActionResult<dynamic>> Login([FromBody] AuthenticateRequest model)
         {
-            var user = await _userRepository.GetUserAsync(model.Username, model.Password).ConfigureAwait(false);
-
-            if (user == null)
-                return NotFound(new { message = "Usuário ou senha inválidos" });
-
-            var token = _tokenService.GenerateToken(user);
-            user.Password = "";
+            var token = await _accountService.Login(model.Username, model.Password);
             return new
             {
-                user = user,
                 token = token
             };
         }

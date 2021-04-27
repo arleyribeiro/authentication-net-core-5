@@ -6,6 +6,6 @@ namespace Authentication.Repositories
 {
     public interface IUserRepository
     {
-        Task<User> GetUserAsync(string username, string password);
+        Task<User> GetUserAsync(string username);
     }
 }

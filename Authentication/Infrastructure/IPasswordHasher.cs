@@ -1,11 +1,11 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
 namespace Authentication.Infrastructure
 {
-    public interface IPasswordHasher<TUser> where TUser : class
+    public interface IPasswordHasher
     {
-        string HashPassword(TUser user, string password);
-        PasswordVerificationResult VerifyHashedPassword(
-          TUser user, string hashedPassword, string providedPassword);
+        string HashPassword(string password);
+        bool VerifyHashedPassword(string hashedPassword, string providedPassword);
     }
 }

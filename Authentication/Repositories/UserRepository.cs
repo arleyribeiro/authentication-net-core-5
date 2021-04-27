@@ -14,11 +14,11 @@ namespace Authentication.Repositories
         public UserRepository(IDatabaseProvider provider) : base(provider)
         {
         }
-        public async Task<User> GetUserAsync(string username, string password)
+        public async Task<User> GetUserAsync(string username)
         {
             var users = await QueryAsync("select * from accounts where username = @username;", new { username }).ConfigureAwait(false);
 
-            return users.FirstOrDefault(x => x.Username.ToLower() == username.ToLower() && x.Password == x.Password);
+            return users.FirstOrDefault(x => x.Username.ToLower() == username.ToLower());
         }
     }
 }
