@@ -27,7 +27,7 @@ namespace Authentication.Infrastructure
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim("id", user.Id.ToString()),
-                    new Claim("name", user.Username.ToString()),
+                    new Claim(ClaimTypes.Name, user.Username.ToString()),
                     new Claim(ClaimTypes.Role, user.Role.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
