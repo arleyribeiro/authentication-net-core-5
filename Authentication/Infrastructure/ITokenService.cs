@@ -1,6 +1,6 @@
 using Authentication.Models;
 
-namespace Authentication.Services
+namespace Authentication.Infrastructure
 {
     public interface ITokenService
     {

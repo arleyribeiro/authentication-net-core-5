@@ -16,6 +16,7 @@ using System.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Authentication.Services;
+using Authentication.Infrastructure;
 using Authentication.Repositories;
 using Authentication;
 
