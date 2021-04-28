@@ -31,5 +31,7 @@ This is a simple project all-in for authenticate an user.
 ## References
 
 [Balta.io](https://balta.io/artigos/aspnet-5-autenticacao-autorizacao-bearer-jwt)
+
 [BCrypt](https://github.com/BcryptNet/bcrypt.net)
+
 [Hash and Verify Passwords](https://jasonwatmore.com/post/2020/07/16/aspnet-core-3-hash-and-verify-passwords-with-bcrypt)
