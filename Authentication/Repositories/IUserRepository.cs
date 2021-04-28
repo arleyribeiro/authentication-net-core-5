@@ -7,5 +7,6 @@ namespace Authentication.Repositories
     public interface IUserRepository
     {
         Task<User> GetUserAsync(string username);
+        Task<int> Insert(User user);
     }
 }

@@ -1,7 +1,9 @@
+using System;
 using System.Threading.Tasks;
 using Authentication.Dtos.Request;
 using Authentication.Repositories;
 using Authentication.Infrastructure;
+using Authentication.Models;
 
 namespace Authentication.Services
 {
@@ -31,6 +33,34 @@ namespace Authentication.Services
         public bool Authenticate(string hashedPassword, string password)
         {
             return _passwordHasher.VerifyHashedPassword(hashedPassword, password);
+        }
+
+        public async Task<bool> Register(User user)
+        {
+            if (user == null)
+                return false;
+
+            if (string.IsNullOrEmpty(user.Role?.Trim()) || (string.Compare(user.Role, "manager", true) > 0 && string.Compare(user.Role, "employee", true) > 0))
+            {
+                throw new ArgumentException("ROLE: Must be manager or employee");
+            }
+
+            return await Insert(user).ConfigureAwait(false);
+        }
+
+        private async Task<bool> Insert(User user)
+        {
+            try
+            {
+                user.Password = _passwordHasher.HashPassword(user.Password);
+                var id = await _userRepository.Insert(user).ConfigureAwait(false);
+                return id > 0;
+            }
+            catch (Exception)
+            {
+                // handle error
+                return false;
+            }
         }
     }
 }

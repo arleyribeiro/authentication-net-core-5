@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-
+using Microsoft.AspNetCore.Http;
 
 using Authentication.Infrastructure;
 using Authentication.Repositories;
@@ -33,6 +33,16 @@ namespace Authentication.Controllers
             {
                 token = token
             };
+        }
+
+        [HttpPost]
+        [Route("register")]
+        [AllowAnonymous]
+        public async Task<ActionResult<bool>> Register([FromBody] RegisterRequest user)
+        {
+            var _user = new User { Username = user.Username, Password = user.Password, Role = user.Role };
+            var result = await _accountService.Register(_user).ConfigureAwait(false);
+            return result;
         }
 
         [HttpGet]

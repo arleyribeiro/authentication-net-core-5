@@ -20,5 +20,11 @@ namespace Authentication.Repositories
 
             return users.FirstOrDefault(x => x.Username.ToLower() == username.ToLower());
         }
+
+        public async Task<int> Insert(User user)
+        {
+            return await ExecuteScalarAsync<int>(@"INSERT INTO accounts (Username, Password, Role, created_on) 
+            VALUES (@Username, @Password, @Role, now()) RETURNING ID;", user).ConfigureAwait(false);
+        }
     }
 }
