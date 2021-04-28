@@ -6,9 +6,10 @@ using System.Data;
 
 namespace Authentication.Repositories
 {
-    public interface IGenericRepository<T>
+    public interface IGenericRepository
     {
-        Task<IEnumerable<T>> QueryAsync(string sql, object param = null, int? commandTimeout = null, CommandType? commandType = null);
+        Task<IEnumerable<T>> QueryAsync<T>(string sql, object param = null, int? commandTimeout = null, CommandType? commandType = null);
         Task<int> ExecuteAsync(string sql, object param = null, int? commandTimeout = null);
+        Task<T> ExecuteScalarAsync<T>(string sql, object param = null, int? commandTimeout = null);
     }
 }

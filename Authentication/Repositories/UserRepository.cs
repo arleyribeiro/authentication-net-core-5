@@ -9,14 +9,14 @@ using System;
 
 namespace Authentication.Repositories
 {
-    public class UserRepository : GenericRepository<User>, IUserRepository
+    public class UserRepository : GenericRepository, IUserRepository
     {
         public UserRepository(IDatabaseProvider provider) : base(provider)
         {
         }
         public async Task<User> GetUserAsync(string username)
         {
-            var users = await QueryAsync("select * from accounts where username = @username;", new { username }).ConfigureAwait(false);
+            var users = await QueryAsync<User>("select * from accounts where username = @username;", new { username }).ConfigureAwait(false);
 
             return users.FirstOrDefault(x => x.Username.ToLower() == username.ToLower());
         }
