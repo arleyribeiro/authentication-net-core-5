@@ -21,12 +21,13 @@ This is a simple project all-in for authenticate an user.
 - Authentication - (webapi project)
   - Controllers
   - Dtos
-  - Request
-  - Response
+    - Request
+    - Response
   - Infrastructure
   - Models
   - Repositories
   - Services
+  - DB
 
 ## References
 
