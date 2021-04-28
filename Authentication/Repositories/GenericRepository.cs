@@ -32,8 +32,63 @@ namespace Authentication.Repositories
                 }
                 catch (SqlException)
                 {
+                    // handle error here
                     return default;
                 }
+            }
+        }
+
+        public async Task<int> ExecuteAsync(string sql, object param = null, int? commandTimeout = null)
+        {
+            using (var connection = _databaseProvider.GetConnection())
+            {
+                TryOpenConnection(connection);
+                using (var transaction = TryBeginTransaction(connection))
+                {
+                    try
+                    {
+                        var content = await connection.ExecuteAsync(
+                            sql: sql,
+                            param: param,
+                            transaction: transaction,
+                            commandTimeout: commandTimeout
+                            ).ConfigureAwait(false);
+
+                        transaction.Commit();
+
+                        return content;
+                    }
+                    catch (SqlException)
+                    {
+                        // handle error here
+                        return default;
+                    }
+                }
+            }
+        }
+
+        public void TryOpenConnection(IDbConnection connection)
+        {
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception)
+            {
+                // handle error here
+            }
+        }
+
+        public IDbTransaction TryBeginTransaction(IDbConnection connection)
+        {
+            try
+            {
+                return connection.BeginTransaction();
+            }
+            catch (Exception)
+            {
+                // handle error here
+                return default;
             }
         }
     }
