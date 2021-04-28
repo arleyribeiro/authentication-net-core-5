@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Authentication.Models;
 using Authentication.Repositories;
+using Authentication.Repositories.Queries;
 using System.Linq;
 using System.Data;
 using Dapper;
@@ -16,15 +17,14 @@ namespace Authentication.Repositories
         }
         public async Task<User> GetUserAsync(string username)
         {
-            var users = await QueryAsync<User>("select * from accounts where username = @username;", new { username }).ConfigureAwait(false);
+            var users = await QueryAsync<User>(UserQueries.GET_USER_BY_USERNAME, new { username }).ConfigureAwait(false);
 
             return users.FirstOrDefault(x => x.Username.ToLower() == username.ToLower());
         }
 
         public async Task<int> Insert(User user)
         {
-            return await ExecuteScalarAsync<int>(@"INSERT INTO accounts (Username, Password, Role, created_on) 
-            VALUES (@Username, @Password, @Role, now()) RETURNING ID;", user).ConfigureAwait(false);
+            return await ExecuteScalarAsync<int>(UserQueries.INSERT, user).ConfigureAwait(false);
         }
     }
 }
