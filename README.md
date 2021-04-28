@@ -26,6 +26,7 @@ This is a simple project all-in for authenticate an user.
   - Infrastructure
   - Models
   - Repositories
+    - Queries
   - Services
   - DB
 
