@@ -62,9 +62,12 @@ namespace Authentication
 
             services.AddScoped<IDatabaseProvider, DatabaseProvider>();
 
+            services.AddScoped(typeof(IRepositoryAsync<>), typeof(RepositoryAsync<>));
+            services.AddScoped(typeof(IDomainRepository<>), typeof(DomainRepository<>));
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped(typeof(IServiceBase<>), typeof(ServiceBase<>));
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPasswordHasher, BCryptPasswordHahser>();
         }
 

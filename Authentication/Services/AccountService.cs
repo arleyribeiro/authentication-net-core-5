@@ -4,16 +4,16 @@ using Authentication.Dtos.Request;
 using Authentication.Repositories;
 using Authentication.Infrastructure;
 using Authentication.Models;
+using System.Collections.Generic;
 
 namespace Authentication.Services
 {
-    public class AccountService : IAccountService
+    public class AccountService : ServiceBase<User>, IAccountService
     {
         private readonly IUserRepository _userRepository;
         private readonly IPasswordHasher _passwordHasher;
-
         private readonly ITokenService _tokenService;
-        public AccountService(IUserRepository userRepository, IPasswordHasher passwordHasher, ITokenService tokenService)
+        public AccountService(IUserRepository userRepository, IPasswordHasher passwordHasher, ITokenService tokenService) : base(userRepository)
         {
             _userRepository = userRepository;
             _passwordHasher = passwordHasher;

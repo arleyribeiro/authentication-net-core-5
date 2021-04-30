@@ -10,21 +10,27 @@ using System;
 
 namespace Authentication.Repositories
 {
-    public class UserRepository : GenericRepository, IUserRepository
+    public class UserRepository : DomainRepository<User>, IUserRepository
     {
         public UserRepository(IDatabaseProvider provider) : base(provider)
         {
         }
+
+        public UserRepository(IDbConnection databaseConnection, IDbTransaction transaction = null) : base(databaseConnection, transaction)
+        {
+        }
+
+        protected string SelectAllQuery => $"SELECT * FROM accounts";
+
         public async Task<User> GetUserAsync(string username)
         {
-            var users = await QueryAsync<User>(UserQueries.GET_USER_BY_USERNAME, new { username }).ConfigureAwait(false);
-
-            return users.FirstOrDefault(x => x.Username.ToLower() == username.ToLower());
+            var users = await dbConn.QueryAsync<User>(UserQueries.GET_USER_BY_USERNAME, new { username }, transaction: dbTransaction).ConfigureAwait(false);
+            return users.FirstOrDefault();
         }
 
         public async Task<int> Insert(User user)
         {
-            return await ExecuteScalarAsync<int>(UserQueries.INSERT, user).ConfigureAwait(false);
+            return await dbConn.ExecuteScalarAsync<int>(UserQueries.INSERT, user, transaction: dbTransaction).ConfigureAwait(false);
         }
     }
 }
