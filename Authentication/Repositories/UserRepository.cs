@@ -11,7 +11,7 @@ using System;
 
 namespace Authentication.Repositories
 {
-    public class UserRepository : DomainRepository<User>, IUserRepository
+    public class UserRepository : RepositoryAsync<User>, IUserRepository
     {
         protected override string SelectAllQuery => $"SELECT * FROM accounts";
         public UserRepository(IDatabaseProvider provider) : base(provider)
