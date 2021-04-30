@@ -24,7 +24,7 @@ This is a simple project all-in for authenticate an user.
     - Request
     - Response
   - Security
-  - Models
+  - Domain
   - Repositories
     - Queries
   - Services

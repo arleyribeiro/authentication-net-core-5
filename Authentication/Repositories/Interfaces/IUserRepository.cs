@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Authentication.Models;
+using Authentication.Domain;
 using System.Collections.Generic;
 
 namespace Authentication.Repositories.Interfaces

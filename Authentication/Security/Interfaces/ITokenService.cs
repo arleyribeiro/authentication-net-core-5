@@ -1,4 +1,4 @@
-using Authentication.Models;
+using Authentication.Domain;
 
 namespace Authentication.Security.Interfaces
 {

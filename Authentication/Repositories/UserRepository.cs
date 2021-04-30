@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Authentication.Models;
+using Authentication.Domain;
 using Authentication.Repositories;
 using Authentication.Repositories.Interfaces;
 using Authentication.Repositories.Queries;

@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Authentication.Models;
+using Authentication.Domain;
 
 namespace Authentication.Services.Interfaces
 {

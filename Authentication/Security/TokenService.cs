@@ -7,7 +7,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
-using Authentication.Models;
+using Authentication.Domain;
 using Authentication.Security.Interfaces;
 
 namespace Authentication.Security

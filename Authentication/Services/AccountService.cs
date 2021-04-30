@@ -4,7 +4,7 @@ using Authentication.Dtos.Request;
 using Authentication.Repositories;
 using Authentication.Repositories.Interfaces;
 using Authentication.Security;
-using Authentication.Models;
+using Authentication.Domain;
 using System.Collections.Generic;
 using Authentication.Services.Interfaces;
 using Authentication.Security.Interfaces;
