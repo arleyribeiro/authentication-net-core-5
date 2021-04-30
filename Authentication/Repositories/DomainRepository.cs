@@ -2,7 +2,7 @@ using System.Data;
 
 namespace Authentication.Repositories
 {
-    public class DomainRepository<TEntity> : RepositoryAsync<TEntity>,
+    public abstract class DomainRepository<TEntity> : RepositoryAsync<TEntity>,
                                                       IDomainRepository<TEntity> where TEntity : class
     {
         protected DomainRepository(IDatabaseProvider databaseProvider) : base(databaseProvider)

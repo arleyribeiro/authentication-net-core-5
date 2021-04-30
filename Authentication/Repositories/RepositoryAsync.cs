@@ -7,13 +7,12 @@ using Dapper;
 
 namespace Authentication.Repositories
 {
-    public class RepositoryAsync<TEntity> : IRepositoryAsync<TEntity> where TEntity : class
+    public abstract class RepositoryAsync<TEntity> : IRepositoryAsync<TEntity> where TEntity : class
     {
         private readonly IDatabaseProvider _databaseProvider;
         protected readonly IDbConnection dbConn;
         protected readonly IDbTransaction dbTransaction;
-        protected string SelectAllQuery { get; }
-
+        protected abstract string SelectAllQuery { get; }
         protected RepositoryAsync(IDatabaseProvider databaseProvider)
         {
             _databaseProvider = databaseProvider;

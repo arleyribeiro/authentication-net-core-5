@@ -12,6 +12,7 @@ namespace Authentication.Repositories
 {
     public class UserRepository : DomainRepository<User>, IUserRepository
     {
+        protected override string SelectAllQuery => $"SELECT * FROM accounts";
         public UserRepository(IDatabaseProvider provider) : base(provider)
         {
         }
@@ -19,8 +20,6 @@ namespace Authentication.Repositories
         public UserRepository(IDbConnection databaseConnection, IDbTransaction transaction = null) : base(databaseConnection, transaction)
         {
         }
-
-        protected string SelectAllQuery => $"SELECT * FROM accounts";
 
         public async Task<User> GetUserAsync(string username)
         {
