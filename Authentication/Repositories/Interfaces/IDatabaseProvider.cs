@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace Authentication.Repositories
+namespace Authentication.Repositories.Interfaces
 {
     public interface IDatabaseProvider
     {

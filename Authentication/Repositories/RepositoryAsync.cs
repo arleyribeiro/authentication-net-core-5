@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using Authentication.Repositories.Interfaces;
 
 namespace Authentication.Repositories
 {

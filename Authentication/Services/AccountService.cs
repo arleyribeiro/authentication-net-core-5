@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Authentication.Dtos.Request;
 using Authentication.Repositories;
+using Authentication.Repositories.Interfaces;
 using Authentication.Infrastructure;
 using Authentication.Models;
 using System.Collections.Generic;

@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Npgsql;
 using Microsoft.Extensions.Configuration;
+using Authentication.Repositories.Interfaces;
 
 namespace Authentication.Repositories
 {

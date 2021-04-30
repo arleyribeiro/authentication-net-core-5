@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 
 using Authentication.Infrastructure;
 using Authentication.Repositories;
+using Authentication.Repositories.Interfaces;
 using Authentication.Models;
 using Authentication.Dtos.Request;
 using Authentication.Services;
