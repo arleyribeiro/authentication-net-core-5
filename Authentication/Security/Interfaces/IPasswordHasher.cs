@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
-namespace Authentication.Infrastructure.Interfaces
+namespace Authentication.Security.Interfaces
 {
     public interface IPasswordHasher
     {

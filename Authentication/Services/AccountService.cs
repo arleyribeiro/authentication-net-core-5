@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 using Authentication.Dtos.Request;
 using Authentication.Repositories;
 using Authentication.Repositories.Interfaces;
-using Authentication.Infrastructure;
+using Authentication.Security;
 using Authentication.Models;
 using System.Collections.Generic;
 using Authentication.Services.Interfaces;
-using Authentication.Infrastructure.Interfaces;
+using Authentication.Security.Interfaces;
 
 namespace Authentication.Services
 {

@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
 using Authentication.Models;
 using Bcrypt = BCrypt.Net.BCrypt;
-using Authentication.Infrastructure.Interfaces;
+using Authentication.Security.Interfaces;
 
-namespace Authentication.Infrastructure
+namespace Authentication.Security
 {
     public class BCryptPasswordHahser : IPasswordHasher
     {

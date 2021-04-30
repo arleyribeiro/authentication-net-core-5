@@ -8,9 +8,9 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Authentication.Models;
-using Authentication.Infrastructure.Interfaces;
+using Authentication.Security.Interfaces;
 
-namespace Authentication.Infrastructure
+namespace Authentication.Security
 {
     public class TokenService : ITokenService
     {

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 
-using Authentication.Infrastructure;
+using Authentication.Security;
 using Authentication.Repositories;
 using Authentication.Repositories.Interfaces;
 using Authentication.Models;
