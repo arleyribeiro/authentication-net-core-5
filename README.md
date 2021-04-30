@@ -23,7 +23,7 @@ This is a simple project all-in for authenticate an user.
   - Dtos
     - Request
     - Response
-  - Infrastructure
+  - Security
   - Models
   - Repositories
     - Queries
