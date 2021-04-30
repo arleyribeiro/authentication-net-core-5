@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Authentication.Repositories;
 using Authentication.Repositories.Interfaces;
+using Authentication.Services.Interfaces;
 
 namespace Authentication.Services
 {

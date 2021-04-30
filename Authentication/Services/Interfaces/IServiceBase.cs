@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace Authentication.Services
+namespace Authentication.Services.Interfaces
 {
     public interface IServiceBase<TEntity> where TEntity : class
     {

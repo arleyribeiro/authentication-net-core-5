@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Authentication.Models;
 
-namespace Authentication.Services
+namespace Authentication.Services.Interfaces
 {
     public interface IAccountService : IServiceBase<User>
     {

@@ -20,6 +20,7 @@ using Authentication.Infrastructure;
 using Authentication;
 using Authentication.Repositories;
 using Authentication.Repositories.Interfaces;
+using Authentication.Services.Interfaces;
 
 namespace Authentication
 {

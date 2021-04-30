@@ -6,6 +6,7 @@ using Authentication.Repositories.Interfaces;
 using Authentication.Infrastructure;
 using Authentication.Models;
 using System.Collections.Generic;
+using Authentication.Services.Interfaces;
 
 namespace Authentication.Services
 {

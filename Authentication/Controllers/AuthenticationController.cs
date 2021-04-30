@@ -11,7 +11,7 @@ using Authentication.Repositories;
 using Authentication.Repositories.Interfaces;
 using Authentication.Models;
 using Authentication.Dtos.Request;
-using Authentication.Services;
+using Authentication.Services.Interfaces;
 
 namespace Authentication.Controllers
 {
