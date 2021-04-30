@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Authentication.Models;
 using Bcrypt = BCrypt.Net.BCrypt;
-
+using Authentication.Infrastructure.Interfaces;
 
 namespace Authentication.Infrastructure
 {
