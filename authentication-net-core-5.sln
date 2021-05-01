@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Interfaces", "Core.Int
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.IoC", "Core.IoC\Core.IoC.csproj", "{ACEC3366-2369-4B2B-B8BA-01C35772C178}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,5 +116,17 @@ Global
 		{ACEC3366-2369-4B2B-B8BA-01C35772C178}.Release|x64.Build.0 = Release|Any CPU
 		{ACEC3366-2369-4B2B-B8BA-01C35772C178}.Release|x86.ActiveCfg = Release|Any CPU
 		{ACEC3366-2369-4B2B-B8BA-01C35772C178}.Release|x86.Build.0 = Release|Any CPU
+		{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}.Debug|x64.Build.0 = Debug|Any CPU
+		{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}.Debug|x86.Build.0 = Debug|Any CPU
+		{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}.Release|x64.ActiveCfg = Release|Any CPU
+		{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}.Release|x64.Build.0 = Release|Any CPU
+		{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}.Release|x86.ActiveCfg = Release|Any CPU
+		{4EB2FC24-D6F7-4E8D-8DC6-7ACF6F111313}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
