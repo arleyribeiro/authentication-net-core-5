@@ -30,6 +30,10 @@ This is a simple project all-in for authenticate an user.
   - Services
   - DB
 
+## Branch structure-layer
+
+This branch contain the application separate by layers or click here [git](https://github.com/arleyribeiro/authentication-net-core-5-layer-structure)
+
 ## References
 
 [Balta.io](https://balta.io/artigos/aspnet-5-autenticacao-autorizacao-bearer-jwt)
