@@ -1,3 +1,4 @@
+using System.Net.Mail;
 using System;
 using System.Text;
 using System.Collections.Generic;
@@ -15,13 +16,8 @@ using Microsoft.OpenApi.Models;
 using System.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Authentication.Services;
-using Authentication.Security;
-using Authentication.Security.Interfaces;
-using Authentication;
-using Authentication.Repositories;
-using Authentication.Repositories.Interfaces;
-using Authentication.Services.Interfaces;
+using Infrastructure.IoC;
+using Core.IoC;
 
 namespace Authentication
 {
@@ -63,12 +59,8 @@ namespace Authentication
                 };
             });
 
-            services.AddScoped<IDatabaseProvider, DatabaseProvider>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped(typeof(IServiceBase<>), typeof(ServiceBase<>));
-            services.AddScoped<IAccountService, AccountService>();
-            services.AddScoped<ITokenService, TokenService>();
-            services.AddScoped<IPasswordHasher, BCryptPasswordHahser>();
+            services.InfrastructureServiceIoc();
+            services.CoreServiceIoc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

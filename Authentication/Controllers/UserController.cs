@@ -6,12 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 
-using Authentication.Security;
-using Authentication.Repositories;
-using Authentication.Repositories.Interfaces;
-using Authentication.Domain;
-using Authentication.Dtos.Request;
-using Authentication.Services.Interfaces;
+using Core.Interfaces.Services;
+using Domain.DTOs.Request;
+using Domain.Entities;
+
 
 namespace Authentication.Controllers
 {
